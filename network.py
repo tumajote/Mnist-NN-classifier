@@ -17,13 +17,3 @@ class Network:
             a = sigmoid(np.dot(w, a) + b)
 
 
-x = Network([2, 3, 1])
-
-print(x.sizes)
-print("Biases")
-print(x.biases[0])
-print("Weights 1 layer")
-print(x.weights[0])
-
-print("Weights 2 layer")
-print(x.weights[1])
