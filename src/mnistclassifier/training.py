@@ -2,7 +2,7 @@ import random
 
 import numpy as np
 
-from activation_functions import sigmoid, sigmoid_prime
+from src.mnistclassifier.activation_functions import sigmoid, sigmoid_prime
 
 
 def train(network, training_data, epochs, mini_batch_size, eta, test_data=None):

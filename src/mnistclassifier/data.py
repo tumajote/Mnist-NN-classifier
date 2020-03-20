@@ -11,7 +11,7 @@ def vectorized_result(j):
 
 
 def load_data():
-    f = gzip.open('./data/mnist.pkl.gz', 'rb')
+    f = gzip.open('../../data/mnist.pkl.gz', 'rb')
     training_data, validation_data, test_data = pickle.load(f, encoding='latin1')
     f.close()
     training_inputs = [np.reshape(x, (784, 1)) for x in training_data[0]]

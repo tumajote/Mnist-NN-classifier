@@ -1,6 +1,6 @@
 import numpy as np
 
-from activation_functions import sigmoid
+from src.mnistclassifier.activation_functions import sigmoid
 
 
 class Network:

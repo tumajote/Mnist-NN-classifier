@@ -1,6 +1,6 @@
-from data import load_data
-from network import Network
-from training import train
+from src.mnistclassifier.data import load_data
+from src.mnistclassifier.network import Network
+from src.mnistclassifier.training import train
 
 if __name__ == "__main__":
     test = Network([784, 30, 10])
