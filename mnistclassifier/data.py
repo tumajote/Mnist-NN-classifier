@@ -14,6 +14,11 @@ def load_data():
     f = gzip.open('../data/mnist.pkl.gz', 'rb')
     training_data, validation_data, test_data = pickle.load(f, encoding='latin1')
     f.close()
+    return (training_data, validation_data, test_data)
+
+
+def format_data():
+    training_data, validation_data, test_data = load_data()
     training_inputs = [np.reshape(x, (784, 1)) for x in training_data[0]]
     training_results = [vectorized_result(y) for y in training_data[1]]
     training_data = zip(training_inputs, training_results)
@@ -26,6 +31,4 @@ def load_data():
     test_results = test_data[1]
     test_data = zip(test_inputs, test_results)
 
-    return list(training_data), list(validation_data), list(test_data)
-
-
+    return (list(training_data), list(validation_data), list(test_data))
