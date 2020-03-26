@@ -11,14 +11,14 @@ def vectorized_result(j):
 
 
 def load_data_from_file():
-    f = gzip.open('dataset/mnist.pkl.gz', 'rb')
+    f = gzip.open('../mnist_dataset/mnist.pkl.gz', 'rb')
     training_data, validation_data, test_data = pickle.load(f, encoding='latin1')
     f.close()
     return (training_data, validation_data, test_data)
 
 
-def format_data():
-    training_data, validation_data, test_data = load_data_from_file()
+def format_data(data):
+    training_data, validation_data, test_data = data
     training_inputs = [np.reshape(x, (784, 1)) for x in training_data[0]]
     training_results = [vectorized_result(y) for y in training_data[1]]
     training_data = zip(training_inputs, training_results)
