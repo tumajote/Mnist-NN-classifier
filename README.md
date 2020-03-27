@@ -1,4 +1,5 @@
 # Mnist-NN-classifier
+![Python application](https://github.com/tumajote/Mnist-NN-classifier/workflows/Python%20application/badge.svg)
 
 A simple feedforward multilayer neural network with backpropagation for classifying images in the Mnist dataset.
 
