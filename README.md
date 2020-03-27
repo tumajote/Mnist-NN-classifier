@@ -4,6 +4,7 @@
 
 [![codecov](https://codecov.io/gh/tumajote/Mnist-NN-classifier/branch/master/graph/badge.svg)](https://codecov.io/gh/tumajote/Mnist-NN-classifier)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/62dee7d6e0dce64e9db5/maintainability)](https://codeclimate.com/github/tumajote/Mnist-NN-classifier/maintainability)
 
 
 A simple feedforward multilayer neural network with backpropagation for classifying images in the Mnist dataset.
