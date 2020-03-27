@@ -6,9 +6,11 @@ from mnistclassifier.activation_functions import sigmoid, sigmoid_prime
 
 
 def train(network, training_data, epochs, mini_batch_size, learning_rate, test_data=None):
-    """Divide the training dataset into mini batches and update the mini batches. If test_data is provided the,
-    the network will be evaluated against the test dataset after each epoch"""
-    if test_data: n_test = len(test_data)
+    """Divide the training dataset into mini batches and update the mini batches according the
+     learning rate. If test_data is provided, the network will be evaluated against the test
+    dataset after each epoch"""
+    if test_data:
+        n_test = len(test_data)
     n = len(training_data)
     results = []
     for j in range(epochs):
@@ -24,7 +26,7 @@ def train(network, training_data, epochs, mini_batch_size, learning_rate, test_d
             print("Epoch {0}: {1} / {2}".format(j, amount_of_correct_outputs, n_test))
             results.append([amount_of_correct_outputs, n_test])
         else:
-             print("Epoch {0} complete".format(j))
+            print("Epoch {0} complete".format(j))
     return results
 
 
