@@ -1,7 +1,6 @@
 import numpy as np
 
 from mnistclassifier.activation_functions import sigmoid, sigmoid_prime
-from mnistclassifier.training import cost_derivative
 
 
 def backpropagate(network, x, y):
@@ -29,3 +28,7 @@ def backpropagate(network, x, y):
         nabla_b[-i] = delta
         nabla_w[-i] = np.dot(delta, activations[-i - 1].transpose())
     return nabla_b, nabla_w
+
+
+def cost_derivative(output_activations, y):
+    return output_activations - y

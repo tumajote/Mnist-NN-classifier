@@ -1,6 +1,7 @@
 import numpy as np
 import pytest
 
+from mnistclassifier.backpropagate import backpropagate
 from mnistclassifier.network import Network
 
 
@@ -10,36 +11,20 @@ def network():
     neurons in each"""
     return Network([784, 30, 10])
 
-import numpy as np
-import pytest
-
-from mnistclassifier.data import format_data
-
 
 @pytest.fixture
 def data():
-    training_data = ([[np.zeros(784)], [np.zeros(784)], [np.zeros(784)]], [1, 2, 3])
-    validation_data = ([[np.zeros(784)], [np.zeros(784)], [np.zeros(784)]], [0, 0, 0])
-    test_data = ([[np.zeros(784)], [np.zeros(784)], [np.zeros(784)]], [0, 0, 0])
-    data = (training_data, validation_data, test_data)
-
+    data = (np.zeros((784, 1)), np.zeros((10, 1)))
     return data
 
 
-def test_data_is_in_formatted_correctly(data):
-    data = format_data(data)
-    training_data, validation_data, test_data = data
-    shape = []
-    shape.append(len(training_data))
-    shape.append(len(training_data[0]))
-    shape.append(len(training_data[0][0]))
-    shape.append(len(training_data[0][1]))
-    shape.append(len(validation_data))
-    shape.append(len(validation_data[0]))
-    shape.append(validation_data[0][1])
-    shape.append(len(test_data))
-    shape.append(len(test_data[0]))
-    shape.append(test_data[0][1])
+def test_backpropagate_results_are_in_correct_format(network, data):
+    x, y = data
+    nabla_bias, nabla_weights = backpropagate(network, x, y)
+    shape = [nabla_bias[0].shape, nabla_bias[1].shape, nabla_weights[0].shape,
+             nabla_weights[1].shape]
 
-    assert shape == [3, 2, 784, 10, 3, 2, 0, 3, 2, 0]
-
+    assert shape == [(30, 1)
+        , (10, 1)
+        , (30, 784)
+        , (10, 30)]
