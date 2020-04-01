@@ -5,7 +5,7 @@ import numpy as np
 from mnistclassifier.backpropagate import backpropagate
 
 
-def train(network, training_data, epochs, mini_batch_size, learning_rate, test_data=None):
+def train_with_stochastic_gradient_descent(network, training_data, epochs, mini_batch_size, learning_rate, test_data=None):
     """Divide the training dataset into mini batches and update the mini batches according the
      learning rate. If test_data is provided, the network will be evaluated against the test
     dataset after each epoch"""
@@ -24,7 +24,7 @@ def train(network, training_data, epochs, mini_batch_size, learning_rate, test_d
         if test_data:
             amount_of_correct_outputs = evaluate(network, test_data)
             print("Epoch {0}: {1} / {2}".format(j, amount_of_correct_outputs, n_test))
-            results.append([amount_of_correct_outputs, n_test])
+            results.append("Epoch {0}: {1} / {2}".format(j, amount_of_correct_outputs, n_test))
         else:
             print("Epoch {0} complete".format(j))
     return results
