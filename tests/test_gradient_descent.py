@@ -3,14 +3,15 @@ import random
 import numpy as np
 import pytest
 
-from mnistclassifier.gradient_descent import train_with_stochastic_gradient_descent
+from mnistclassifier.gradient_descent import \
+    train_with_stochastic_gradient_descent
 from mnistclassifier.network import Network
 
 
 @pytest.fixture
 def network():
-    """Returns a Network instance with 3 layers of neurons: first 784, second 30 and third 10
-    neurons in each"""
+    """Returns a Network instance with 3 layers of neurons: first 784, second
+    30 and third 10 neurons in each"""
     return Network([784, 30, 10])
 
 
@@ -63,5 +64,6 @@ def data():
 
 def test_training_with_stochastic_gradient_descent(network, data):
     training_data, test_data = data
-    results = train_with_stochastic_gradient_descent(network, training_data, 1, 10, 3.0, test_data)
+    results = train_with_stochastic_gradient_descent(network, training_data, 1,
+                                                     10, 3.0, test_data)
     assert results == [(1000, 1000)]

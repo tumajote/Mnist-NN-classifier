@@ -6,8 +6,8 @@ from mnistclassifier.network import Network
 
 @pytest.fixture
 def network():
-    """Returns a Network instance with 3 layers of neurons: first 784, second 30 and third 10
-    neurons in each"""
+    """Returns a Network instance with 3 layers of neurons: first 784,
+     second 30 and third 10 neurons in each"""
     return Network([784, 30, 10])
 
 
@@ -28,5 +28,6 @@ def test_network_has_correct_number_of_weights(network):
     assert count == 23820
 
 
-def test_network_feedforward_method_produces_correct_number_of_outputs(network):
+def test_network_feedforward_method_produces_correct_number_of_outputs(
+        network):
     assert len(network.feedforward(np.zeros((784, 1)))) == 10

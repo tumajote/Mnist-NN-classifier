@@ -6,9 +6,12 @@ from mnistclassifier.data import format_data
 
 @pytest.fixture
 def data():
-    training_data = ([[np.zeros(784)], [np.zeros(784)], [np.zeros(784)]], [0, 0, 0])
-    validation_data = ([[np.zeros(784)], [np.zeros(784)], [np.zeros(784)]], [0, 0, 0])
-    test_data = ([[np.zeros(784)], [np.zeros(784)], [np.zeros(784)]], [0, 0, 0])
+    training_data = ([[np.zeros(784)], [np.zeros(784)], [np.zeros(784)]],
+                     [0, 0, 0])
+    validation_data = ([[np.zeros(784)], [np.zeros(784)], [np.zeros(784)]],
+                       [0, 0, 0])
+    test_data = ([[np.zeros(784)], [np.zeros(784)], [np.zeros(784)]],
+                 [0, 0, 0])
     data = (training_data, validation_data, test_data)
 
     return data
