@@ -1,5 +1,10 @@
+import random
+
 import numpy as np
 import pytest
+
+from mnistclassifier.gradient_descent import train_with_stochastic_gradient_descent
+from mnistclassifier.network import Network
 
 
 @pytest.fixture
@@ -11,8 +16,9 @@ def network():
 
 @pytest.fixture
 def data():
-    """Training data"""
-    n = 100
+    """Mock training data"""
+    n = 10000
+    n = int(n / 2)
     x = [np.zeros((784, 1)) for x in range(n)]
     y = [np.zeros((10, 1)) for x in range(n)]
     training_data = list(zip(x, y))
@@ -29,24 +35,33 @@ def data():
             x[i] = 0.99
         y[3] = 1
     training_data.extend(training_data_extra)
+    random.shuffle(training_data)
 
-    """Test data"""
-    n = 1000
-    x = [np.zeros((784, 1)) for x in range(n)]
-    y = [0 for x in range(n)]
+    """Mock test data"""
+    n_test = 1000
+    n_test = int(n_test / 2)
+    x = [np.zeros((784, 1)) for x in range(n_test)]
+    y = [0 for x in range(n_test)]
     test_data = list(zip(x, y))
     for x, y in test_data:
         for i in range(0, 200):
             x[i] = 0.99
 
-    x = [np.zeros((784, 1)) for x in range(n)]
-    y = [3 for x in range(n)]
+    x = [np.zeros((784, 1)) for x in range(n_test)]
+    y = [3 for x in range(n_test)]
     test_data_extra = list(zip(x, y))
     for x, y in test_data_extra:
         for i in range(300, 500):
             x[i] = 0.99
     test_data.extend(test_data_extra)
+    random.shuffle(training_data)
 
     data = training_data, test_data
 
     return data
+
+
+def test_training_with_stochastic_gradient_descent(network, data):
+    training_data, test_data = data
+    results = train_with_stochastic_gradient_descent(network, training_data, 1, 10, 3.0, test_data)
+    assert results == [(1000, 1000)]
