@@ -1,20 +1,22 @@
 import numpy as np
 
 from mnistclassifier.activation_functions import sigmoid
+from mnistclassifier.cost_functions import CrossEntropyCost
 
 
 class Network:
     """The actual network object"""
 
-    def __init__(self, sizes, weights_and_biases="default"):
+    def __init__(self, sizes, cost=CrossEntropyCost,
+                 weights_and_biases="default"):
         """The constructor takes as an argument a list of integers the
          number of elements gives the amount of layer and the integer gives
           the amount of neurons in that layer"""
         self.num_layers = len(sizes)
         self.sizes = sizes
+        self.cost = cost
         if weights_and_biases == "default":
             self.biases, self.weights = self.initialize_default_weights()
-
 
     def initialize_default_weights(self):
         """Initialize the weights as Gaussian random variables with mean 0 and
@@ -34,7 +36,6 @@ class Network:
                    zip(self.sizes[:-1],
                        self.sizes[1:])]
         return biases, weights
-
 
     def feedforward(self, a):
         """Returns the output if a is the input """

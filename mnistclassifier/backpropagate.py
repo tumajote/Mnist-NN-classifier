@@ -18,7 +18,7 @@ def backpropagate(network, x, y):
         activation = sigmoid(z)
         activations.append(activation)
     """Backward"""
-    delta = cost_derivative(activations[-1], y) * sigmoid_prime(zs[-1])
+    delta = network.cost.delta(zs[-1], activations[-1], y)
     nabla_b[-1] = delta
     nabla_w[-1] = np.dot(delta, activations[-2].transpose())
     for i in range(2, network.num_layers):
@@ -28,7 +28,3 @@ def backpropagate(network, x, y):
         nabla_b[-i] = delta
         nabla_w[-i] = np.dot(delta, activations[-i - 1].transpose())
     return nabla_b, nabla_w
-
-
-def cost_derivative(output_activations, y):
-    return output_activations - y
