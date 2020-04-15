@@ -14,7 +14,8 @@ def train_with_stochastic_gradient_descent(network, training_data, epochs,
     if test_data:
         n_test = len(test_data)
     n = len(training_data)
-    results = []
+    number_of_correct_results = []
+    percent_of_correct_results = []
     for j in range(epochs):
         random.shuffle(training_data)
         mini_batches = [
@@ -24,15 +25,19 @@ def train_with_stochastic_gradient_descent(network, training_data, epochs,
         for mini_batch in mini_batches:
             update_mini_batch(network, mini_batch, learning_rate)
         if test_data:
+
             amount_of_correct_outputs = evaluate(network, test_data)
+            accuracy = round(amount_of_correct_outputs / n_test, 4) * 100
             print("Epoch {0}: {1} / {2} Accuracy: {3}%".format(j,
-                                                              amount_of_correct_outputs,
-                                                              n_test,
-                                                              round(amount_of_correct_outputs / n_test,2)*100))
-            results.append((amount_of_correct_outputs,n_test))
+                                                               amount_of_correct_outputs,
+                                                               n_test,
+                                                               accuracy))
+            number_of_correct_results.append(
+                (amount_of_correct_outputs, n_test))
+            percent_of_correct_results.append((accuracy, 100))
         else:
             print("Epoch {0} complete".format(j))
-    return results
+    return number_of_correct_results, percent_of_correct_results
 
 
 def update_mini_batch(network, mini_batch, learning_rate):
