@@ -11,6 +11,10 @@ A simple feedforward multilayer neural network with backpropagation for classify
 
 [Requirement specification](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Requirement_specification.md)
 
+[Implementation](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Implementation.md)
+
+[Performance testing](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Testing.md)
+
 ## Weekly reports
 
 [Week 1](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Weekly_report_1.md)
@@ -18,3 +22,5 @@ A simple feedforward multilayer neural network with backpropagation for classify
 [Week 2](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Weekly_report_2.md)
 
 [Week 3](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Weekly_report_3.md)
+
+[Week 4](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Weekly_report_4.md)
