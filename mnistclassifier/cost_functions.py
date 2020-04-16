@@ -25,4 +25,4 @@ class CrossEntropyCost:
     def delta(z, a, y):
         """Returns the error delta for the output layer. Z is included to make
         the method consistent with other cost functions"""
-        return (a - y)
+        return a - y

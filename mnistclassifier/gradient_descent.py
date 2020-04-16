@@ -70,7 +70,7 @@ def update_mini_batch(network, mini_batch, learning_rate,
     network.weights = [
         (1 - learning_rate * (regularization_parameter / n)) * w - (
                 learning_rate / len(mini_batch)) * nw for w, nw in
-        zip(network.biases, nabla_w)]
+        zip(network.weights, nabla_w)]
     network.biases = [b - (learning_rate / len(mini_batch)) * nb
                       for b, nb in zip(network.biases, nabla_b)]
 
@@ -85,6 +85,7 @@ def accuracy(network, data, convert=False):
     else:
         results = [(np.argmax(network.feedforward(x)), y)
                    for (x, y) in data]
+    print(len(data))
     number_of_correct_results = sum(int(x == y) for (x, y) in results)
     return number_of_correct_results
 
