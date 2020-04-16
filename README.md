@@ -7,7 +7,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/62dee7d6e0dce64e9db5/maintainability)](https://codeclimate.com/github/tumajote/Mnist-NN-classifier/maintainability)
 
 
-A simple feedforward multilayer neural network with backpropagation for classifying images in the Mnist dataset.
+A simple feedforward multilayer neural network with backpropagation for classifying images in the Mnist dataset. The network is build following the book [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html) by Michael Nielsen 
 
 [Requirement specification](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Requirement_specification.md)
 
