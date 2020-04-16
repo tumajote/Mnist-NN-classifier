@@ -85,7 +85,6 @@ def accuracy(network, data, convert=False):
     else:
         results = [(np.argmax(network.feedforward(x)), y)
                    for (x, y) in data]
-    print(len(data))
     number_of_correct_results = sum(int(x == y) for (x, y) in results)
     return number_of_correct_results
 

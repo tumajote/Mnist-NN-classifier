@@ -64,6 +64,18 @@ def data():
 
 def test_training_with_stochastic_gradient_descent(network, data):
     training_data, test_data = data
-    results = train_with_stochastic_gradient_descent(network, training_data, 1,
-                                                     10, 3.0, test_data)
-    assert results == [(1000, 1000)]
+    evaluation_cost, evaluation_accuracy, \
+    training_cost, training_accuracy = train_with_stochastic_gradient_descent(
+        network=network,
+        training_data=training_data,
+        epochs=1,
+        mini_batch_size=10,
+        learning_rate=0.5,
+        regularization_parameter=0.1,
+        evaluation_data=test_data,
+        monitor_evaluation_cost=True,
+        monitor_evaluation_accuracy=True,
+        monitor_training_cost=True,
+        monitor_training_accuracy=True)
+    results = [training_accuracy[0],evaluation_accuracy[0]]
+    assert results == [10000, 1000]
