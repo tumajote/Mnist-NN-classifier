@@ -27,4 +27,6 @@ def backpropagate(network, x, y):
         delta = np.dot(network.weights[-i + 1].transpose(), delta) * sp
         nabla_b[-i] = delta
         nabla_w[-i] = np.dot(delta, activations[-i - 1].transpose())
+    print("zs:", len(zs))
+    print("activations:", len(activations))
     return nabla_b, nabla_w

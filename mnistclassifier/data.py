@@ -15,7 +15,7 @@ def load_data_from_file():
     training_data, validation_data, test_data = pickle.load(f,
                                                             encoding='latin1')
     f.close()
-    return (training_data, validation_data, test_data)
+    return training_data, validation_data, test_data
 
 
 def format_data(data):
@@ -32,4 +32,4 @@ def format_data(data):
     test_results = test_data[1]
     test_data = zip(test_inputs, test_results)
 
-    return (list(training_data), list(validation_data), list(test_data))
+    return list(training_data), list(validation_data), list(test_data)
