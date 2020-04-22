@@ -23,62 +23,58 @@ def make_plots(evaluation_cost, evaluation_accuracy, training_cost,
                  training_set_size, evaluation_set_size)
 
 
+def plot_cost_general(cost, num_epochs, cost_xmin, title):
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.plot(np.arange(cost_xmin, num_epochs),
+            cost[cost_xmin:num_epochs],
+            color='#2A6EA6')
+    ax.set_xlim([cost_xmin, num_epochs])
+    ax.grid(True)
+    ax.set_xlabel('Epoch')
+    ax.set_title(title)
+    plt.show()
+
+
 def plot_training_cost(training_cost, num_epochs, training_cost_xmin):
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    ax.plot(np.arange(training_cost_xmin, num_epochs),
-            training_cost[training_cost_xmin:num_epochs],
-            color='#2A6EA6')
-    ax.set_xlim([training_cost_xmin, num_epochs])
-    ax.grid(True)
-    ax.set_xlabel('Epoch')
-    ax.set_title('Cost on the training data')
-    plt.show()
-
-
-def plot_test_accuracy(evaluation_accuracy, num_epochs, test_accuracy_xmin,
-                       evaluation_set_size):
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    ax.plot(np.arange(test_accuracy_xmin, num_epochs),
-            [accuracy * 100.0 / evaluation_set_size
-             for accuracy in
-             evaluation_accuracy[test_accuracy_xmin:num_epochs]],
-            color='#2A6EA6')
-    ax.set_xlim([test_accuracy_xmin, num_epochs])
-    ax.grid(True)
-    ax.set_xlabel('Epoch')
-    ax.set_title('Accuracy (%) on the evaluation data')
-    plt.show()
+    title = 'Cost on the training data'
+    plot_cost_general(training_cost, num_epochs, training_cost_xmin, title)
 
 
 def plot_test_cost(evaluation_cost, num_epochs, test_cost_xmin):
+    title = 'Cost on the evaluation data'
+    plot_cost_general(evaluation_cost, num_epochs, test_cost_xmin, title)
+
+
+def plot_accuracy_general(accuracy, num_epochs, accuracy_xmin,
+                          set_size, title):
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.plot(np.arange(test_cost_xmin, num_epochs),
-            evaluation_cost[test_cost_xmin:num_epochs],
+    ax.plot(np.arange(accuracy_xmin, num_epochs),
+            [accuracy * 100.0 / set_size
+             for accuracy in
+             accuracy[accuracy_xmin:num_epochs]],
             color='#2A6EA6')
-    ax.set_xlim([test_cost_xmin, num_epochs])
+    ax.set_xlim([accuracy_xmin, num_epochs])
     ax.grid(True)
     ax.set_xlabel('Epoch')
-    ax.set_title('Cost on the evaluation data')
+    ax.set_title(title)
     plt.show()
+
+
+def plot_test_accuracy(evaluation_accuracy, num_epochs,
+                       evaluation_accuracy_xmin, evaluation_set_size):
+    title = 'Accuracy (%) on the evaluation data'
+    plot_accuracy_general(evaluation_accuracy, num_epochs,
+                          evaluation_accuracy_xmin,
+                          evaluation_set_size, title)
 
 
 def plot_training_accuracy(training_accuracy, num_epochs,
                            training_accuracy_xmin, training_set_size):
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    ax.plot(np.arange(training_accuracy_xmin, num_epochs),
-            [accuracy * 100.0 / training_set_size
-             for accuracy in
-             training_accuracy[training_accuracy_xmin:num_epochs]],
-            color='#2A6EA6')
-    ax.set_xlim([training_accuracy_xmin, num_epochs])
-    ax.grid(True)
-    ax.set_xlabel('Epoch')
-    ax.set_title('Accuracy (%) on the training data')
-    plt.show()
+    title = 'Accuracy (%) on the training data'
+    plot_accuracy_general(training_accuracy, num_epochs,
+                          training_accuracy_xmin, training_set_size, title)
 
 
 def plot_overlay(evaluation_accuracy, training_accuracy, num_epochs, xmin,
