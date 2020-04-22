@@ -9,6 +9,8 @@
 
 A simple feedforward multilayer neural network with backpropagation for classifying images in the Mnist dataset. The network is build following the book [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html) by Michael Nielsen 
 
+[User guide](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/user_guide.md)
+
 [Requirement specification](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Requirement_specification.md)
 
 [Implementation](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Implementation.md)
@@ -24,3 +26,5 @@ A simple feedforward multilayer neural network with backpropagation for classify
 [Week 3](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Weekly_report_3.md)
 
 [Week 4](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Weekly_report_4.md)
+
+[Week 5](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Weekly_report_5.md)
