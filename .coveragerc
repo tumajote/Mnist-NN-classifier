@@ -1,3 +1,4 @@
 [report]
 omit =
     mnistclassifier/plots.py
+    main.py
