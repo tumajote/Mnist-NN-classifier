@@ -15,27 +15,13 @@ class Network:
         self.num_layers = len(sizes)
         self.sizes = sizes
         self.cost = cost
-        if weights_and_biases == "default":
-            self.biases, self.weights = self.initialize_default_weights()
 
-    def initialize_default_weights(self):
-        """Initialize the weights as Gaussian random variables with mean 0 and
-        and standard deviation 1 divided by the square root of number of
-        connections to the neuron"""
-        biases = [np.random.randn(y, 1) for y in self.sizes[1:]]
-        weights = [np.random.randn(y, x) / np.sqrt(x) for x, y in
-                   zip(self.sizes[:-1],
-                       self.sizes[1:])]
-        return biases, weights
-
-    def initialize_large_weights(self):
         """Initialize the weights as Gaussian random variables with mean 0 and
         and standard deviation 1"""
-        biases = [np.random.randn(y, 1) for y in self.sizes[1:]]
-        weights = [np.random.randn(y, x) / np.sqrt(x) for x, y in
+        self.biases = [np.random.randn(y, 1) for y in self.sizes[1:]]
+        self.weights = [np.random.randn(y, x) / np.sqrt(x) for x, y in
                    zip(self.sizes[:-1],
                        self.sizes[1:])]
-        return biases, weights
 
     def feedforward(self, a):
         """Returns the output if a is the input """

@@ -3,17 +3,17 @@ import numpy as np
 from mnistclassifier.activation_functions import sigmoid_prime
 
 
+"""
+Quadratic cost function for legacy use
+
 class QuadraticCost:
     @staticmethod
     def function(a, y):
-        """Returns the cost for output a and desired output y"""
         return 0.5 * np.linalg.norm(a - y) ** 2
-
     @staticmethod
     def delta(z, a, y):
-        """Returns the error delta for the output layer"""
         return (a - y) * sigmoid_prime(z)
-
+"""
 
 class CrossEntropyCost:
     @staticmethod
