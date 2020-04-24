@@ -18,8 +18,10 @@ def data():
 
 
 def test_data_is_in_formatted_correctly(data):
-    data = format_data(data)
     training_data, validation_data, test_data = data
+    training_data, validation_data, test_data = format_data(training_data,
+                                                            validation_data,
+                                                            test_data)
     shape = []
     shape.append(len(training_data))
     shape.append(len(training_data[0]))
