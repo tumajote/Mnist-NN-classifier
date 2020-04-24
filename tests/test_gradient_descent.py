@@ -72,10 +72,6 @@ def test_training_with_stochastic_gradient_descent(network, data):
         mini_batch_size=10,
         learning_rate=0.5,
         regularization_parameter=0.1,
-        evaluation_data=test_data,
-        monitor_evaluation_cost=True,
-        monitor_evaluation_accuracy=True,
-        monitor_training_cost=True,
-        monitor_training_accuracy=True)
-    results = [training_accuracy[0],evaluation_accuracy[0]]
+        evaluation_data=test_data, )
+    results = [training_accuracy[0], evaluation_accuracy[0]]
     assert results == [10000, 1000]
