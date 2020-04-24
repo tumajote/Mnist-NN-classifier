@@ -20,8 +20,8 @@ class Network:
         and standard deviation 1"""
         self.biases = [np.random.randn(y, 1) for y in self.sizes[1:]]
         self.weights = [np.random.randn(y, x) / np.sqrt(x) for x, y in
-                   zip(self.sizes[:-1],
-                       self.sizes[1:])]
+                        zip(self.sizes[:-1],
+                            self.sizes[1:])]
 
     def feedforward(self, a):
         """Returns the output if a is the input """

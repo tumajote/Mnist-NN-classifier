@@ -29,6 +29,6 @@ def format_data(training_data, validation_data, test_data):
 
     return list(training_data), list(validation_data), list(test_data)
 
+
 def reshape_to_vector(data):
     return [np.reshape(x, (784, 1)) for x in data[0]]
-

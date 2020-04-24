@@ -8,6 +8,7 @@ from mnistclassifier.network import Network
 from mnistclassifier.plots import make_plots
 
 if __name__ == "__main__":
+    """Set the command line parsing"""
     parser = argparse.ArgumentParser(description='Train a simple Mnist'
                                                  'classifier')
     parser.add_argument('--epochs', type=int, default=10,
@@ -31,18 +32,10 @@ if __name__ == "__main__":
         mini_batch_size=args.mini_batch_size,
         learning_rate=args.learning_rate,
         regularization_parameter=args.regularization_parameter,
-        evaluation_data=test_data,
-        monitor_evaluation_cost=True,
-        monitor_evaluation_accuracy=True,
-        monitor_training_cost=True,
-        monitor_training_accuracy=True)
+        evaluation_data=test_data)
 
     if args.epochs > 1:
         make_plots(evaluation_cost, evaluation_accuracy, training_cost,
                    training_accuracy,
                    num_epochs=args.epochs,
-                   training_cost_xmin=0,
-                   test_accuracy_xmin=0,
-                   test_cost_xmin=0,
-                   training_accuracy_xmin=0,
                    training_set_size=50000)

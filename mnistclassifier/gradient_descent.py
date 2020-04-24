@@ -9,19 +9,25 @@ def train_with_stochastic_gradient_descent(network, training_data, epochs,
                                            mini_batch_size,
                                            learning_rate,
                                            regularization_parameter=0.0,
-                                           evaluation_data=None,
-                                           monitor_evaluation_cost=False,
-                                           monitor_evaluation_accuracy=False,
-                                           monitor_training_cost=False,
-                                           monitor_training_accuracy=False):
+                                           evaluation_data=None):
     """Divide the training dataset into mini batches and update the mini
-     batches according the learning rate. If evaluation_data is provided, the network
-      will be evaluated against the evaluation dataset after each epoch"""
+     batches according the learning rate. If evaluation_data is provided,
+      the network will be evaluated against the evaluation dataset after
+       each epoch"""
     if evaluation_data:
         n_data = len(evaluation_data)
+
+    """The monitoring can be set from these variables"""
+    monitor_evaluation_cost = True,
+    monitor_evaluation_accuracy = True,
+    monitor_training_cost = True,
+    monitor_training_accuracy = True
+
     n = len(training_data)
     evaluation_cost, evaluation_accuracy = [], []
     training_cost, training_accuracy = [], []
+
+    """Divide and update the mini batches"""
     for j in range(epochs):
         random.shuffle(training_data)
         mini_batches = [
@@ -32,6 +38,8 @@ def train_with_stochastic_gradient_descent(network, training_data, epochs,
             update_mini_batch(network, mini_batch, learning_rate,
                               regularization_parameter, n)
         print("Epoch %s complete" % j)
+
+        """Print the results to console and save them for plotting"""
         if monitor_training_cost:
             cost = total_cost(network, training_data, regularization_parameter)
             training_cost.append(cost)
@@ -42,20 +50,20 @@ def train_with_stochastic_gradient_descent(network, training_data, epochs,
             training_accuracy.append(single_training_accuracy)
             print("Accuracy on training data:"
                   " {} / {}".format(single_training_accuracy, n))
-        if monitor_evaluation_cost:
+        if monitor_evaluation_cost and evaluation_data:
             cost = total_cost(network, evaluation_data,
                               regularization_parameter, convert=True)
             evaluation_cost.append(cost)
             print("Cost on evaluation data: {}".format(cost))
-        if monitor_evaluation_accuracy:
+        if monitor_evaluation_accuracy and evaluation_data:
             single_training_accuracy = accuracy(network, evaluation_data)
             evaluation_accuracy.append(single_training_accuracy)
             print("Accuracy on evaluation data:"
                   " {} / {}".format(single_training_accuracy,
                                     n_data))
 
-    return evaluation_cost, evaluation_accuracy, \
-           training_cost, training_accuracy
+    return evaluation_cost, evaluation_accuracy, training_cost, \
+           training_accuracy
 
 
 def update_mini_batch(network, mini_batch, learning_rate,
