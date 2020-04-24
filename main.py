@@ -1,7 +1,7 @@
 import argparse
 
 from mnistclassifier.cost_functions import CrossEntropyCost
-from mnistclassifier.data import format_data, load_data_from_file
+from mnistclassifier.data import load_data_from_file
 from mnistclassifier.gradient_descent \
     import train_with_stochastic_gradient_descent
 from mnistclassifier.network import Network
@@ -21,8 +21,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     test = Network([784, 100, 10], cost=CrossEntropyCost)
-    data = load_data_from_file()
-    training_data, validation_data, test_data = format_data(data)
+    training_data, validation_data, test_data = load_data_from_file()
 
     evaluation_cost, evaluation_accuracy, \
     training_cost, training_accuracy = train_with_stochastic_gradient_descent(

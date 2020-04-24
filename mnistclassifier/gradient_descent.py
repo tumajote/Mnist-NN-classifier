@@ -15,8 +15,8 @@ def train_with_stochastic_gradient_descent(network, training_data, epochs,
                                            monitor_training_cost=False,
                                            monitor_training_accuracy=False):
     """Divide the training dataset into mini batches and update the mini
-     batches according the learning rate. If test_data is provided, the network
-      will be evaluated against the test dataset after each epoch"""
+     batches according the learning rate. If evaluation_data is provided, the network
+      will be evaluated against the evaluation dataset after each epoch"""
     if evaluation_data:
         n_data = len(evaluation_data)
     n = len(training_data)
