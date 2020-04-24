@@ -10,6 +10,6 @@ In the optimized version I changed the way the weights are initialized, used cro
 
 ![Graph for the optimised version 1]( https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Optimazed_network_accuracy_evaluation_data.png)
 
-I tried the same setup except learning rate was 0.2
+I tried the same setup except learning rate was 0.2. With a smaller learning rate the network learned more slowly and started from lesser accuracy but in the end it had slightly better accuracy. 
 
 ![Graph for the optimised version 2]( https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Optimazed_network_2_accuracy_evaluation_data.png)
