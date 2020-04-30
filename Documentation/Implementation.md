@@ -1,6 +1,6 @@
 # Implementation
 
-This architecture of the  mnist classifier neural net is comprised of five python modules: activation functions, backpropagate, data, gradient_descent and network. 
+This architecture of the  mnist classifier is comprised of seven python modules: activation_functions, backpropagate, cost_functions, data, gradient_descent, network and plot. 
 
 ## Network
 
