@@ -81,6 +81,7 @@ def plot_overlay(data_array_1, data_array_2, num_epochs,
                 color='#FFA933',
                 label='Accuracy on the training data')
         ax.set_ylim([50, 100])
+        plt.legend(loc="lower right")
     else:
         ax.plot(np.arange(starting_epoch, num_epochs),
                 data_array_1[starting_epoch:num_epochs],
@@ -90,10 +91,11 @@ def plot_overlay(data_array_1, data_array_2, num_epochs,
                 data_array_2[starting_epoch:num_epochs],
                 color='#FFA933',
                 label='Cost on the training data')
+        plt.legend(loc="best")
     ax.grid(True)
     ax.set_xlim([starting_epoch, num_epochs - 1])
     ax.set_xlabel('Epoch')
-    plt.legend(loc="lower right")
+
     if num_epochs < 6:
         make_ticks_integers()
     plt.show()
