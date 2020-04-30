@@ -1,12 +1,11 @@
 # Requirement specification
 
-A simple feedforward multilayer neural network with backpropagation for classifying images in the Mnist dataset. 
+A simple program to create and train feedforward multilayer neural networks for classifying images in the Mnist dataset. The user will be able to choose the amount of hidden layers and the amount of neurons in the layers. The user can set various hyperparameters for the training phase such as mini batch size, amount of epochs, learning rate and L2 regularization parameter.   
 
-- The hidden layers are activated by rectified linear unit (ReLU)
-- The output layer is activated by softmax function 
-- Most of the project will be implemented from scratch except matrix operations will be done with numpy 
-- Training will be conducted through a standard gradient descent 
-- The training data (input) will be a part of the Mnist dataset and output will be the inferred digit
+Main features
+- The activation function for the neurons is a sigmoid function 
+- The cost function is a cross entropy cost funtion
+- During training the weights and biases are updated with the stochastic gradient descent and the gradient is computed with backpropagation
 
 I intend to use Michael A. Nielsens "Neural Networks and Deep Learning", Determination Press, 2015 as a guide in my work.
 
