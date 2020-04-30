@@ -16,10 +16,14 @@ The activation functions of the neurons are in their own module.
 
 The training of the network is done by the gradient_descent and backpropagate modules. 
 
-The method train_with_stochastic_gradient_descent divides the training set into minibatches which size can be given as parameter. The method computes the gradient for quadratic cost function with the method backpropagate for a given minibatch and updates the weights and biases accordingly. The learning rate can also be adjusted by giving a parameter to the train_with_stochastic_gradient_descent method. 
+The method train_with_stochastic_gradient_descent divides the training set into minibatches which size can be given as parameter. The method computes the gradient for cross entropy cost function with the method backpropagate for a given minibatch and updates the network’s weights and biases with the L2 regularization function. The learning rate and regularization parameters are given as parameters to the train_with_stochastic_gradient_descent method. 
 
 
 ## Data
 
-The data module provides methods for loading the mnist dataset from a zip file and converting the data into an format that helps to utilize it in the classifier.
+The data module provides methods for loading the mnist dataset from a zip file and converting the data into a format that helps to utilize it in the classifier.
+
+## Plotting 
+
+The plot module provides functions for plotting the results as graphs. The plotting function provides graphs for cost and accuracy.
 
