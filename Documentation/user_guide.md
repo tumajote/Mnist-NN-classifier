@@ -1,5 +1,5 @@
 ## Train the network (requires Python 3)
-Pull the repo navigate, to the root and install dependencies (if you don't want to install dependencies globally
+Pull the repo, navigate to the root and install dependencies (if you don't want to install dependencies globally
 initialize a virtual environment like venv) 
 ```
 Pip install -r requirements.txt
