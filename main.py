@@ -11,17 +11,26 @@ if __name__ == "__main__":
     """Set the command line parsing"""
     parser = argparse.ArgumentParser(description='Train a simple Mnist'
                                                  'classifier')
-    parser.add_argument('--epochs', type=int, default=10,
+    parser.add_argument('-e', '--epochs', type=int, default=10,
                         help='How many epochs to train')
-    parser.add_argument('--mini_batch_size', type=int, default=10,
+    parser.add_argument('-m', '--mini_batch_size', type=int, default=100,
                         help='How many training samples in a mini batch')
-    parser.add_argument('--learning_rate', type=float, default=0.5,
+    parser.add_argument('-l', '--learning_rate', type=float, default=0.5,
                         help='Set the learning rate')
-    parser.add_argument('--regularization_parameter', type=float, default=5.0,
+    parser.add_argument('-r', '--regularization_parameter', type=float,
+                        default=5.0,
                         help='Sets the L2 regularization parameter')
+    parser.add_argument('-i', '--hidden_layers', nargs='+', type=int,
+                        default=[100],
+                        help='Set the amount of hidden'
+                             ' layers and their neurons')
     args = parser.parse_args()
 
-    test = Network([784, 100, 10], cost=CrossEntropyCost)
+    layers = [784]
+    layers.extend(args.hidden_layers)
+    layers.append(10)
+
+    test = Network(layers, cost=CrossEntropyCost)
     training_data, validation_data, test_data = load_data_from_file()
 
     evaluation_cost, evaluation_accuracy, \
