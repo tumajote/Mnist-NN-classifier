@@ -16,7 +16,9 @@ The activation functions of the neurons are in their own module.
 
 The training of the network is done by the gradient_descent and backpropagate modules. 
 
-The method train_with_stochastic_gradient_descent divides the training set into minibatches which size can be given as parameter. The method computes the gradient for cross entropy cost function with the method backpropagate for a given minibatch and updates the network’s weights and biases with the L2 regularization function. The learning rate and regularization parameters are given as parameters to the train_with_stochastic_gradient_descent method. 
+The size of the mini batches, learning rate and regularization parameter are given as parameters to the train_with_stochastic_gradient_descent method. The method is also given an evaluation data set which is used to test how the network performs outside the training data. 
+
+The method train_with_stochastic_gradient_descent divides the training set into mini batches. The method computes the gradient for cross entropy cost function with the method backpropagate for a given mini batch and updates the network’s weights and biases with the L2 regularization function. The cost and backpropagation functions are in their own modules. The same is done with every mini batch of the training data set. The amount of times the network trains with the whole training dataset is given by the epoch paramater. After each epoch the program prints the results of the training: the amount of correct classifications and the cost. Both of these figures are given for the training data and the evaluation data. 
 
 
 ## Data

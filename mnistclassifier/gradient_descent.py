@@ -68,7 +68,8 @@ def train_with_stochastic_gradient_descent(network, training_data, epochs,
 
 def update_mini_batch(network, mini_batch, learning_rate,
                       regularization_parameter, n):
-    """Update a mini batch by applying gradient descent with backpropagation"""
+    """Update the network according the mini batch by applying gradient descent
+     with backpropagation and L2 regularization"""
     nabla_b = [np.zeros(b.shape) for b in network.biases]
     nabla_w = [np.zeros(w.shape) for w in network.weights]
     for x, y in mini_batch:
