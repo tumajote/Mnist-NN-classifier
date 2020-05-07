@@ -31,3 +31,6 @@ A simple feedforward multilayer neural network with backpropagation for classify
 
 [Week 6](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Weekly_report_6.md)
 
+[Week 7](https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Weekly_report_7.md)
+
+
