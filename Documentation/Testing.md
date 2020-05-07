@@ -10,6 +10,15 @@ In the optimized version I changed the way the weights are initialized, used cro
 
 ![Graph for the optimised version 1]( https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Optimazed_network_accuracy_evaluation_data.png)
 
+## Smaller learning rate
+
 I tried the same setup except learning rate was 0.2. With a smaller learning rate the network learned more slowly and started from lesser accuracy but in the end it had slightly better accuracy. 
 
 ![Graph for the optimised version 2]( https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Optimazed_network_2_accuracy_evaluation_data.png)
+
+## Different architecture
+
+I also tried a different architecture. The setup was the same as the previous test but there was now two hidden layers instead of one. Both of the hidden layers had 100 neurons. The network had more accurate results than previously but they were not as consistent and there vas much more variation.
+
+![Graph for the new architecture]( https://github.com/tumajote/Mnist-NN-classifier/blob/master/Documentation/Optimazed_network_3_accuracy_evaluation_data.png)
+

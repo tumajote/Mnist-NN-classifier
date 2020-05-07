@@ -43,6 +43,7 @@ def make_plots(evaluation_cost, evaluation_accuracy, training_cost,
 
 
 def plot(data_array, num_epochs, starting_epoch, title, data_set_size=None):
+    """General plotting function for single graphs"""
     fig = plt.figure()
     ax = fig.add_subplot(111)
     if data_set_size:
@@ -67,6 +68,7 @@ def plot(data_array, num_epochs, starting_epoch, title, data_set_size=None):
 def plot_overlay(data_array_1, data_array_2, num_epochs,
                  starting_epoch,
                  training_set_size=None, evaluation_set_size=None):
+    """General plotting function for overlaid graphs"""
     fig = plt.figure()
     ax = fig.add_subplot(111)
     if training_set_size and evaluation_set_size:
@@ -80,7 +82,7 @@ def plot_overlay(data_array_1, data_array_2, num_epochs,
                  for accuracy in data_array_2],
                 color='#FFA933',
                 label='Accuracy on the training data')
-        ax.set_ylim([50, 100])
+        # ax.set_ylim([50, 100])
         plt.legend(loc="lower right")
     else:
         ax.plot(np.arange(starting_epoch, num_epochs),
@@ -102,6 +104,7 @@ def plot_overlay(data_array_1, data_array_2, num_epochs,
 
 
 def make_ticks_integers():
+    """Utility function for keeping the tics as integers for small values"""
     xint = []
     locs, labels = plt.xticks()
     for each in locs:

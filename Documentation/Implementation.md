@@ -10,9 +10,10 @@ An instance of the Network object keeps track of the weights and biases of the n
 
 The actual classifying is done by the Network class’ method feedforward which takes an input: a picture of a digit as a vector of pixel densities and returns an output: a vector of ten elements of which each depicts a class of digits from 1 to 10. Each element in the output vector contains a value which depicts how confident the network is that the input is of that class. In other words, the method takes as an input a picture and outputs the networks guess of which digit the picture resembles.
 
-The activation functions of the neurons are in their own module. 
 
 ## Training
+
+The data module provides methods for loading the mnist dataset from a zip file and converting the data into a format that the network can work with. In other words, it converts the image pixel values into a vector which is the same size as the input layer of the network.
 
 The training of the network is done by the gradient_descent and backpropagate modules. 
 
@@ -20,12 +21,9 @@ The size of the mini batches, learning rate and regularization parameter are giv
 
 The method train_with_stochastic_gradient_descent divides the training set into mini batches. The method computes the gradient for cross entropy cost function with the method backpropagate for a given mini batch and updates the network’s weights and biases with the L2 regularization function. The cost and backpropagation functions are in their own modules. The same is done with every mini batch of the training data set. The amount of times the network trains with the whole training dataset is given by the epoch paramater. After each epoch the program prints the results of the training: the amount of correct classifications and the cost. Both of these figures are given for the training data and the evaluation data. 
 
+Train_with_stochastic_gradient_descent method also computes and saves the accuracies and costs for the training and evaluation data sets per epoch. After the training is concluded, the saved data is presented as graphs. 
+The plot module provides functions for plotting the results. 
 
-## Data
 
-The data module provides methods for loading the mnist dataset from a zip file and converting the data into a format that helps to utilize it in the classifier.
 
-## Plotting 
-
-The plot module provides functions for plotting the results as graphs. The plotting function provides graphs for cost and accuracy.
 

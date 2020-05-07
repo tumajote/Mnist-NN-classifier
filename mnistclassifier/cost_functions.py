@@ -21,6 +21,6 @@ class CrossEntropyCost:
 
     @staticmethod
     def delta(z, a, y):
-        """Returns the error delta for the output layer. Z is included to make
-        the method consistent with other cost functions"""
+        """Returns the error delta for the output layer. z is included to make
+        the method consistent with the legacy cost function"""
         return a - y

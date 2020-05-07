@@ -5,11 +5,12 @@ from mnistclassifier.cost_functions import CrossEntropyCost
 
 
 class Network:
-    """The actual network object"""
+    """The actual data structure which maintains the weights and biases of the
+    network and does the classification"""
 
     def __init__(self, sizes, cost=CrossEntropyCost):
-        """The constructor takes as an argument a list of integers the
-         number of elements gives the amount of layer and the integer gives
+        """The Network constructor takes as an argument a list of integers the
+         number of elements gives the amount of layers and the integer gives
           the amount of neurons in that layer"""
         self.num_layers = len(sizes)
         self.sizes = sizes
@@ -24,7 +25,9 @@ class Network:
                             self.sizes[1:])]
 
     def feedforward(self, a):
-        """Returns the output if a is the input """
+        """Returns the output the network if a is the input. a must be a vector
+        with the length of 784 which is the amount of pixels in a picture in
+        the MNIST dataset"""
         for b, w in zip(self.biases, self.weights):
             a = sigmoid(np.dot(w, a) + b)
         return a

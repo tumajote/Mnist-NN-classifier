@@ -8,7 +8,7 @@ from mnistclassifier.network import Network
 from mnistclassifier.plots import make_plots
 
 if __name__ == "__main__":
-    """Set the command line parsing"""
+    """Set the command line parsing and the parameters to train the network"""
     parser = argparse.ArgumentParser(description='Train a simple Mnist'
                                                  'classifier')
     parser.add_argument('-e', '--epochs', type=int, default=10,
@@ -26,13 +26,16 @@ if __name__ == "__main__":
                              ' layers and their neurons')
     args = parser.parse_args()
 
+    """Set the input and output layers to match the data"""
     layers = [784]
     layers.extend(args.hidden_layers)
     layers.append(10)
 
+    """Initiate the network"""
     test = Network(layers, cost=CrossEntropyCost)
     training_data, validation_data, test_data = load_data_from_file()
 
+    """Train the network"""
     evaluation_cost, evaluation_accuracy, \
     training_cost, training_accuracy = train_with_stochastic_gradient_descent(
         network=test,
@@ -43,6 +46,7 @@ if __name__ == "__main__":
         regularization_parameter=args.regularization_parameter,
         evaluation_data=test_data)
 
+    """Draw graphs if there is more than one epoch"""
     if args.epochs > 1:
         make_plots(evaluation_cost, evaluation_accuracy, training_cost,
                    training_accuracy,
